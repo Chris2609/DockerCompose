@@ -1,0 +1,201 @@
+* {
+  font-family: "Nunito Sans", Arial, Helvetica, sans-serif;
+}
+
+.container {
+  display: flex;
+  height: 100vh;
+}
+
+.tabs-container {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0px;
+  padding: 10px;
+}
+
+/* Style the tabs */
+.tabs {
+  margin-bottom: 28px;
+  display: flex;
+  justify-content: space-between;
+  color: #4dabab;
+}
+
+.tabs a {
+  cursor: pointer;
+  padding: 12px 24px;
+  width: 120px;
+  text-align: center;
+  font-weight: bold;
+  border-radius: 18px;
+  transition: background 0.1s, color 0.1s;
+  background: linear-gradient(145deg, #ffffff, #dcdcdc);
+  box-shadow: 3px 3px 5px #bebebe, -3px -3px 5px #ffffff;
+}
+
+/* Change background color of tabs on hover */
+.tabs a:hover {
+  background: linear-gradient(145deg, #f4f4f4, #cecece);
+  color: #1089b1;
+}
+
+/* Styling for active tab */
+.tabs a.active {
+  background-color: #f4f4f4;
+  color: #4dabab;
+  cursor: default;
+  background: #f4f4f4;
+  box-shadow: inset 3px 3px 5px #cbcbcb, inset -3px -3px 5px #ffffff;
+}
+
+/* Style the tab content */
+.tabcontent {
+  padding: 46px;
+  min-height: 79vh;
+  display: none;
+  border-radius: 18px;
+  background: #f4f4f4;
+  box-shadow: 3px 3px 6px #bebebe, -3px -3px 6px #ffffff;
+}
+
+.content .active {
+  display: block;
+}
+.tabcontent p {
+  margin-bottom: 12px;
+}
+.tabcontent p:last-child {
+  margin-bottom: 0;
+}
+.tabcontent .read-more-link a {
+  color: #626262;
+  text-decoration: none;
+  font-size: 0.85em;
+  font-weight: bold;
+}
+
+.icon {
+  padding-left: 8px;
+  font-size: 16px;
+}
+
+.switch-label {
+  cursor: pointer;
+  font-size: 0.85em;
+}
+/* the box around the slider */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 44px;
+  height: 22px;
+  margin-left: 4px;
+}
+/* Hide default HTML checkbox */
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+/* The slider */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #1a1b1f;
+  transition: 0.2s;
+  box-shadow: 2px 2px 3px #ffffff, -2px -2px 3px #bebebe;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 18px;
+  width: 18px;
+  left: 3px;
+  bottom: 2px;
+  background: #9294b8;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+input:checked + .slider {
+  background-color: #f4f4f4;
+}
+input:checked + .slider:before {
+  transform: translateX(21px);
+}
+/* Rounded sliders */
+.slider.round {
+  border-radius: 11px;
+}
+.slider.round:before {
+  border-radius: 50%;
+}
+
+@media (max-width: 968px) {
+  .tabs {
+    flex-direction: column; /* Cambia la dirección de la disposición a columna */
+    align-items: center; /* Centra los elementos horizontalmente en la columna */
+  }
+
+  .tab {
+    margin-bottom: 10px; /* Añade espacio entre cada elemento en la columna */
+  }
+
+  .tabs a {
+    width: 80%;
+    margin-inline: 40px;
+  }
+}
+
+/*estilos contenido tabs*/
+
+.fondoTiempo {
+  background-image: url(img/despejado.jpg);
+  background-position: center;
+  width: 100%;
+  height: 30vh;
+  border-radius: 20px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+
+.temperatura {
+  position: absolute;
+  bottom: -10px;
+  left: 10px;
+  color: black;
+  text-shadow: 3px 3px 3px #baeaf4;
+  font-size: 7em;
+}
+
+.humedad {
+  position: absolute;
+  bottom: -5px;
+  left: 10px;
+  color: black;
+  text-shadow: 2px 2px 1px #baeaf4;
+  font-size: 2em;
+}
+
+.fecha {
+  position: absolute;
+  right: 10px;
+  bottom: 0px;
+  text-shadow: 2px 2px 1px #baeaf4;
+}
+
+@media(max-width: 780px){
+    .fecha{
+        top: 0px;
+    }
+}
+
+.favorito {
+  filter: hue-rotate(120deg);
+}

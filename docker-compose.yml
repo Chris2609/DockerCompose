@@ -1,0 +1,63 @@
+version: '3.5'
+services:
+  apache:
+    image: httpd:latest
+    restart: always
+    volumes:
+      - ./index/:/usr/local/apache2/htdocs/
+    ports:
+      - "8081:80"
+  nginx:
+    image: nginx:latest
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf
+    ports:
+      - "8080:80"
+  mysql:
+    image: mysql:latest
+    restart: always
+    environment:
+      MYSQL_DATABASE: 'RetoChristianBBDD'
+      MYSQL_USER: 'sail'
+      MYSQL_PASSWORD: 'password'
+      MYSQL_ROOT_PASSWORD: 'password'
+    ports:
+      - '3306:3306'
+    expose:
+      - '3306'
+    volumes:
+      - ./BBDD/:/var/lib/mysql
+  laravelpassport:
+    image: markosmartinez/laravelpassport-php8.2
+    container_name: LaravelPassport
+    volumes:
+      - ./laravel1/:/var/www/html/
+      # Por defecto el puerto utilizado en laravel es el 8000
+    ports:
+      - 81:8000
+    depends_on:
+      - mysql
+  laravelbackend:
+    image: markosmartinez/laravelpassport-php8.2
+    container_name: LaravelBackend
+    volumes:
+      - ./laravel2/:/var/www/html/
+    environment:
+      # Por defecto el modo utilizado es 'USAR_WORKER: 0'
+      USAR_WORKER: 1
+      # Por defecto el puerto utilizado en laravel es el 8000
+    ports:
+      - 82:8000
+    depends_on:
+      - mysql
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    links:
+      - mysql
+    environment:
+      PMA_HOST: mysql
+      PMA_PORT: 3306
+      PMA_ARBITRARY: mysql
+    restart: always
+    ports:
+      - 8082:80
