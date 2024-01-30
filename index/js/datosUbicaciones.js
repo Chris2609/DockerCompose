@@ -1,4 +1,5 @@
 async function datosUbicaciones() {
+    
     try {
         let respuesta = await fetch(laravelApi + "/api/obtenerDatosActuales", {
             headers: {
@@ -13,12 +14,15 @@ async function datosUbicaciones() {
         var contenedorEnlacesTabs = document.getElementById("enlacesTabs");
         var contenedorContenidoTabs = document.getElementById("contenidoTabs");
         numTab = 2;
+
+        todasPrevisiones = datosEuskalmet();
+        arrayPrevisiones = await todasPrevisiones;
+
         for(let i = 0; i < data.length; i++){
-            // contenedorEnlacesTabs.innerHTML += `<a id="tab${numTab}" data-tab="${numTab}" class="tab">${data[i]["nombre"]}</a>`;
             contenedorEnlacesTabs.innerHTML += `<a id="tab${numTab}" data-tab="${numTab}" class="tab ${data[i]["nombre"]}" style="display: none;">${data[i]["nombre"]}</a>`;
 
             contenedorContenidoTabs.innerHTML += `<div id="tabcontent${numTab}" data-tab="${numTab}" class="tabcontent">
-            <div class="fondoTiempo">
+            <div class="fondoTiempo" title="Previsión para mañana: ${arrayPrevisiones[i]}">
             
                 <h1 class="temperatura" id="temperatura${data[i]["nombre"]}">${data[i]["temperatura"]}º</h1>
                 <h2 class="humedad" id="humedad${data[i]["nombre"]}">Humedad: ${data[i]["humedad"]}%</h2>
@@ -26,7 +30,7 @@ async function datosUbicaciones() {
                 
             </div>
 
-            <div id="izquierda">
+            <div id="izquierda" tittle="Miau miau">
                 <div style="background-color: rgb(183, 0, 255); width: 100%; height: 350px;"></div>
                 <div style="background-color: aqua; width: 100%; height: 100px; margin-top: 20px;"></div>
             </div>
@@ -42,14 +46,17 @@ async function datosUbicaciones() {
         cargarTabs();
         cargarMapa();
 
-        setInterval(() => {
-            actualizarDatos();
-            console.log("actualizado")
-        }, 10000);
-
+        $(document).tooltip();  
     } catch (error) {
         console.log(error);
     }
+
+
+
+    setInterval(() => {
+        actualizarDatos();
+        console.log("actualizado")
+    }, 10000);
 }
 
 async function actualizarDatos(){

@@ -197,5 +197,5 @@ input:checked + .slider:before {
 }
 
 .favorito {
-  filter: hue-rotate(120deg);
+  filter: hue-rotate(60deg);
 }
