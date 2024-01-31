@@ -138,12 +138,12 @@ input:checked + .slider:before {
 
 @media (max-width: 968px) {
   .tabs {
-    flex-direction: column; /* Cambia la dirección de la disposición a columna */
-    align-items: center; /* Centra los elementos horizontalmente en la columna */
+    flex-direction: column;
+    align-items: center;
   }
 
   .tab {
-    margin-bottom: 10px; /* Añade espacio entre cada elemento en la columna */
+    margin-bottom: 10px;
   }
 
   .tabs a {
@@ -155,7 +155,6 @@ input:checked + .slider:before {
 /*estilos contenido tabs*/
 
 .fondoTiempo {
-  background-image: url(img/despejado.jpg);
   background-position: center;
   width: 100%;
   height: 30vh;
@@ -190,10 +189,10 @@ input:checked + .slider:before {
   text-shadow: 2px 2px 1px #baeaf4;
 }
 
-@media(max-width: 780px){
-    .fecha{
-        top: 0px;
-    }
+@media (max-width: 780px) {
+  .fecha {
+    top: 0px;
+  }
 }
 
 .favorito {

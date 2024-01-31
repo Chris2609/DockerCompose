@@ -22,7 +22,7 @@ async function datosUbicaciones() {
             contenedorEnlacesTabs.innerHTML += `<a id="tab${numTab}" data-tab="${numTab}" class="tab ${data[i]["nombre"]}" style="display: none;">${data[i]["nombre"]}</a>`;
 
             contenedorContenidoTabs.innerHTML += `<div id="tabcontent${numTab}" data-tab="${numTab}" class="tabcontent">
-            <div class="fondoTiempo" title="Previsión para mañana: ${arrayPrevisiones[i]}">
+            <div class="fondoTiempo" style="background-image: url(img/${data[i]["estadoCielo"]}.jpg);" title="Previsión para mañana: ${arrayPrevisiones[i]}">
             
                 <h1 class="temperatura" id="temperatura${data[i]["nombre"]}">${data[i]["temperatura"]}º</h1>
                 <h2 class="humedad" id="humedad${data[i]["nombre"]}">Humedad: ${data[i]["humedad"]}%</h2>
@@ -30,9 +30,17 @@ async function datosUbicaciones() {
                 
             </div>
 
-            <div id="izquierda" tittle="Miau miau">
-                <div style="background-color: rgb(183, 0, 255); width: 100%; height: 350px;"></div>
-                <div style="background-color: aqua; width: 100%; height: 100px; margin-top: 20px;"></div>
+            <div id="izquierda" style="position: relative;">
+                <div style="background-color: rgb(183, 0, 255); width: 100%; height: 350px;">
+                    <div style="float: left; background-color: yellow; width: 49%; height: 49%;"></div>
+                    <div style="float: right; background-color: yellow; width: 49%; height: 49%"></div>
+                    
+                    <div style="float: left; background-color: yellow; width: 49%; height: 49%; position: relative; bottom: -7px;"></div>
+                    <div style="float: right; background-color: yellow; width: 49%; height: 49%; position: relative; bottom: -7px;"></div>
+                </div>
+                <div style="background-color: white; width: 100%; height: 100px; margin-top: 20px;">
+                    <img draggable="true" src="img/sensacionTermica.png">
+                </div>
             </div>
             <div id="derecha">
                 <input type="date">
