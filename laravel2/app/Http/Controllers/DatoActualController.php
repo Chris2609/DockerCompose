@@ -75,7 +75,7 @@ class DatoActualController extends Controller
 
     public function generacionAleatoriaTemperatura()
     {
-        $ubicaciones = ["Irun", "Errenteria", "San Sebastian", "Hondarribia", "Usurbil"];
+        $ubicaciones = ["Irun", "Errenteria", "Donostia", "Hondarribia", "Usurbil"];
 
         foreach ($ubicaciones as $ubicacion) {
             $temperaturaReal = DatoActual::where('nombre', $ubicacion)->value("temperaturaReal");

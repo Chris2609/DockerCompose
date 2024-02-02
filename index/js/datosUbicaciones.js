@@ -18,28 +18,38 @@ async function datosUbicaciones() {
         todasPrevisiones = datosEuskalmet();
         arrayPrevisiones = await todasPrevisiones;
 
+        var estadosCielo = ["Clear", "Rain", "Clouds"];
         for(let i = 0; i < data.length; i++){
             contenedorEnlacesTabs.innerHTML += `<a id="tab${numTab}" data-tab="${numTab}" class="tab ${data[i]["nombre"]}" style="display: none;">${data[i]["nombre"]}</a>`;
 
+            let imagenCielo;
+            if (!estadosCielo.includes(data[i]["estadoCielo"])) {
+                imagenCielo = "Rain.jpg";
+            } else {
+                imagenCielo = `${data[i]["estadoCielo"]}.jpg`;
+            }
             contenedorContenidoTabs.innerHTML += `<div id="tabcontent${numTab}" data-tab="${numTab}" class="tabcontent">
-            <div class="fondoTiempo" style="background-image: url(img/${data[i]["estadoCielo"]}.jpg);" title="Previsión para mañana: ${arrayPrevisiones[i]}">
+            <div class="fondoTiempo" style="background-image: url(img/${imagenCielo});" title="Previsión para mañana: ${arrayPrevisiones[i]}">
             
                 <h1 class="temperatura" id="temperatura${data[i]["nombre"]}">${data[i]["temperatura"]}º</h1>
                 <h2 class="humedad" id="humedad${data[i]["nombre"]}">Humedad: ${data[i]["humedad"]}%</h2>
                 <h2 class="fecha"></h2>
                 
             </div>
-
+            
             <div id="izquierda" style="position: relative;">
                 <div style="background-color: rgb(183, 0, 255); width: 100%; height: 350px;">
-                    <div style="float: left; background-color: yellow; width: 49%; height: 49%;"></div>
-                    <div style="float: right; background-color: yellow; width: 49%; height: 49%"></div>
+                    <div class="destino" style="float: left; background-color: yellow; width: 49%; height: 49%;"></div>
+                    <div class="destino" style="float: right; background-color: yellow; width: 49%; height: 49%"></div>
                     
-                    <div style="float: left; background-color: yellow; width: 49%; height: 49%; position: relative; bottom: -7px;"></div>
-                    <div style="float: right; background-color: yellow; width: 49%; height: 49%; position: relative; bottom: -7px;"></div>
+                    <div class="destino" style="float: left; background-color: yellow; width: 49%; height: 49%; position: relative; bottom: -7px;"></div>
+                    <div class="destino" style="float: right; background-color: yellow; width: 49%; height: 49%; position: relative; bottom: -7px;"></div>
                 </div>
-                <div style="background-color: white; width: 100%; height: 100px; margin-top: 20px;">
-                    <img draggable="true" src="img/sensacionTermica.png">
+                <div style="background-color: orange; width: 100%; height: 100px; margin-top: 20px;">
+                    <div draggable="true" id="sensacionTermica_${data[i]["nombre"]}">
+                        <img draggable="false" src="img/sensacionTermica.png">
+                        <p>Hola</p>
+                    </div>
                 </div>
             </div>
             <div id="derecha">
@@ -53,7 +63,7 @@ async function datosUbicaciones() {
         }
         cargarTabs();
         cargarMapa();
-
+        dragDrop();
         $(document).tooltip();  
     } catch (error) {
         console.log(error);
