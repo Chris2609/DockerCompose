@@ -48,7 +48,7 @@ async function datosUbicaciones() {
                 <div class="origen" style="background-color: orange; width: 100%; height: 100px; margin-top: 20px; display: flex; align-items: center;">
                     <div draggable="true" id="sensacionTermica_${data[i]["nombre"]}" style="display: flex; flex-wrap:wrap; align-items: center;">
                         <img draggable="false" src="img/sensacionTermica.png" style="margin-right: 10px">
-                        <h4 style="display:none;">${data[i]["sensacionTermica"]}º</h4>
+                        <h4 style="display:none;">${data[i]["sensacionTermica"]} º</h4>
                     </div>
                 </div>
             
@@ -95,6 +95,9 @@ async function actualizarDatos(){
             contenedorTemp.textContent = data[i]["temperatura"] + "º";
             var contenedorHum = document.getElementById(`humedad${data[i]["nombre"]}`);
             contenedorHum.textContent = "Humedad: " + data[i]["humedad"] + "%";
+            var contenedorSensacionTermica = document.getElementById(`sensacionTermica_${data[i]["nombre"]}`).getElementsByTagName("h4")[0];
+            contenedorSensacionTermica.textContent = `${data[i]["sensacionTermica"]} º`;
+
         }
     } catch (error) {
         console.log(error);
