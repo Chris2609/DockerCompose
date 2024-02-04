@@ -45,12 +45,14 @@ async function datosUbicaciones() {
                     <div class="destino" style="float: left; background-color: yellow; width: 49%; height: 49%; position: relative; bottom: -7px;"></div>
                     <div class="destino" style="float: right; background-color: yellow; width: 49%; height: 49%; position: relative; bottom: -7px;"></div>
                 </div>
-                <div style="background-color: orange; width: 100%; height: 100px; margin-top: 20px;">
-                    <div draggable="true" id="sensacionTermica_${data[i]["nombre"]}">
-                        <img draggable="false" src="img/sensacionTermica.png">
-                        <p>Hola</p>
+                <div class="origen" style="background-color: orange; width: 100%; height: 100px; margin-top: 20px; display: flex; align-items: center;">
+                    <div draggable="true" id="sensacionTermica_${data[i]["nombre"]}" style="display: flex; flex-wrap:wrap; align-items: center;">
+                        <img draggable="false" src="img/sensacionTermica.png" style="margin-right: 10px">
+                        <h4 style="display:none;">${data[i]["sensacionTermica"]}º</h4>
                     </div>
                 </div>
+            
+            
             </div>
             <div id="derecha">
                 <input type="date">
