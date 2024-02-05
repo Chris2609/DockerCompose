@@ -4,7 +4,7 @@
 
 .container {
   display: flex;
-  height: 100vh;
+  height: 100%;
 }
 
 .tabs-container {
@@ -53,6 +53,7 @@
 .tabcontent {
   padding: 46px;
   min-height: 79vh;
+  height: auto;
   display: none;
   border-radius: 18px;
   background: #f4f4f4;
@@ -197,4 +198,18 @@ input:checked + .slider:before {
 
 .favorito {
   filter: hue-rotate(60deg);
+}
+
+.contenedorDestino {
+  border-radius: 20px;
+  background: #e3e3e3;
+  box-shadow:  20px 20px 60px #c1c1c1,
+               -20px -20px 60px #ffffff;
+}
+
+.origen{
+  border-radius: 50px;
+background: #ffffff;
+box-shadow:  20px 20px 60px #d9d9d9,
+             -20px -20px 60px #ffffff;
 }

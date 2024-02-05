@@ -1,29 +1,31 @@
 function dragDrop() {
 
-  $("#sensacionTermica_Donostia").on("dragstart", function (event) {
-    object = event.target.id;
-    console.log("inicio drag");
-  });
+  let ubicaciones = ["Donostia", "Errenteria", "Hondarribia", "Irun", "Usurbil"];
 
-    $("#sensacionTermica_Errenteria").on("dragstart", function (event) {
-    object = event.target.id;
-    console.log("inicio drag");
-  });
+  for (let i = 0; i < ubicaciones.length; i++) {
+    let ubicacion = ubicaciones[i];
+    
+    $(`#sensacionTermica_${ubicacion}`).on("dragstart", function (event) {
+      object = event.target.id;
+      console.log("inicio drag");
+    });
 
-  $("#sensacionTermica_Hondarribia").on("dragstart", function (event) {
-    object = event.target.id;
-    console.log("inicio drag");
-  });
+    $(`#presionAtmosferica_${ubicacion}`).on("dragstart", function (event) {
+      object = event.target.id;
+      console.log("inicio drag");
+    });
 
-  $("#sensacionTermica_Irun").on("dragstart", function (event) {
-    object = event.target.id;
-    console.log("inicio drag");
-  });
+    $(`#velocidadViento_${ubicacion}`).on("dragstart", function (event) {
+      object = event.target.id;
+      console.log("inicio drag");
+    });
 
-  $("#sensacionTermica_Usurbil").on("dragstart", function (event) {
-    object = event.target.id;
-    console.log("inicio drag");
-  });
+    $(`#estadoCielo_${ubicacion}`).on("dragstart", function (event) {
+      object = event.target.id;
+      console.log("inicio drag");
+    });
+  }
+ 
 
   $(".destino").on("dragover", function (event) {
     event.preventDefault();
@@ -36,7 +38,7 @@ function dragDrop() {
     var draggedElement = document.getElementById(object);
       if (event.target !== draggedElement) {
         event.target.appendChild(draggedElement);
-        $(draggedElement).find("h4").css("display", "block");
+        $(draggedElement).find("h1").css("display", "inline-block");
         $(draggedElement).find("img").css("width", "50%");
 
       }
@@ -55,7 +57,7 @@ function dragDrop() {
     if (event.target !== draggedElement) {
       event.target.appendChild(draggedElement);
       // Ocultar el <h4> en el div de origen una vez que se suelta el elemento
-      $(draggedElement).find("h4").css("display", "none");
+      $(draggedElement).find("h1").css("display", "none");
       $(draggedElement).find("img").css("width", "100%");
     }
   });
