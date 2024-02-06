@@ -46,20 +46,20 @@ async function datosUbicaciones() {
                     <div class="destino" style="float: right; width: 49%; height: 49%; position: relative; bottom: -7px;"></div>
                 </div>
                 <div class="origen" style="width: 100%; height: 100px; margin-top: 10px; display: flex; flex-wrap: wrap; min-height: 120px; height:auto; align-items: center; justify-content: center;">
-                    <div draggable="true" id="sensacionTermica_${data[i]["nombre"]}" style="display: flex; flex-wrap:wrap; align-items: center; justify-content: center;">
-                        <img draggable="false" src="img/sensacionTermica.png" style="margin-right: 10px; display: block;">
+                    <div draggable="true" id="sensacionTermica_${data[i]["nombre"]}" style="display: flex; flex-wrap:wrap; align-items: center; justify-content: center; width: 25%">
+                        <img draggable="false" src="img/sensacionTermica.png" style="margin-right: 10px; display: block; max-width: 100%; height: auto;">
                         <h1 style="display:none;">${data[i]["sensacionTermica"]} º</h1>
                     </div>
-                    <div draggable="true" id="presionAtmosferica_${data[i]["nombre"]}" style="display: flex; flex-wrap:wrap; align-items: center; justify-content: center;">
-                        <img draggable="false" src="img/presionAtmosferica.png" style="margin-right: 10px; display: block;">
+                    <div draggable="true" id="presionAtmosferica_${data[i]["nombre"]}" style="display: flex; flex-wrap:wrap; align-items: center; justify-content: center; width: 25%">
+                        <img draggable="false" src="img/presionAtmosferica.png" style="margin-right: 10px; display: block; max-width: 100%; height: auto;">
                         <h1 style="display:none;">${data[i]["presionAtmosferica(hPa)"]} hPA</h1>
                     </div>
-                    <div draggable="true" id="velocidadViento_${data[i]["nombre"]}" style="display: flex; flex-wrap:wrap; align-items: center; justify-content: center;">
-                        <img draggable="false" src="img/velocidadViento.png" style="margin-right: 10px; display: block;">
+                    <div draggable="true" id="velocidadViento_${data[i]["nombre"]}" style="display: flex; flex-wrap:wrap; align-items: center; justify-content: center; width: 25%">
+                        <img draggable="false" src="img/velocidadViento.png" style="margin-right: 10px; display: block; max-width: 100%; height: auto;">
                         <h1 style="display:none;">${data[i]["velocidadViento(m/s)"]} m/s</h1>
                     </div>
-                    <div draggable="true" id="estadoCielo_${data[i]["nombre"]}" style="display: flex; flex-wrap:wrap; align-items: center; justify-content: center;">
-                        <img draggable="false" src="img/estadoCielo.png" style="margin-right: 10px; display: block;">
+                    <div draggable="true" id="estadoCielo_${data[i]["nombre"]}" style="display: flex; flex-wrap:wrap; align-items: center; justify-content: center; width: 25%">
+                        <img draggable="false" src="img/estadoCielo.png" style="margin-right: 10px; display: block; max-width: 100%; height: auto;">
                         <h1 style="display:none;">${data[i]["estadoCielo"]}</h1>
                     </div>
                 </div>

@@ -213,3 +213,12 @@ background: #ffffff;
 box-shadow:  20px 20px 60px #d9d9d9,
              -20px -20px 60px #ffffff;
 }
+
+@media(max-width:1023px){
+  .temperatura{
+    font-size: 5em;
+  }
+  .humedad{
+    font-size: 1.5em;
+  }
+}
