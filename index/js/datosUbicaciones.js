@@ -29,7 +29,7 @@ async function datosUbicaciones() {
                 imagenCielo = `${data[i]["estadoCielo"]}.jpg`;
             }
             contenedorContenidoTabs.innerHTML += `<div id="tabcontent${numTab}" data-tab="${numTab}" class="tabcontent">
-            <div class="fondoTiempo" style="background-image: url(img/${imagenCielo});" title="Previsión para mañana: ${arrayPrevisiones[i]}">
+            <div class="fondoTiempo" id="fondoTiempo${data[i]["nombre"]}" style="background-image: url(img/${imagenCielo});" title="Previsión para mañana: ${arrayPrevisiones[i]}">
             
                 <h1 class="temperatura" id="temperatura${data[i]["nombre"]}">${data[i]["temperatura"]}º</h1>
                 <h2 class="humedad" id="humedad${data[i]["nombre"]}">Humedad: ${data[i]["humedad"]}%</h2>
@@ -101,8 +101,18 @@ async function actualizarDatos(){
         
         let data = await respuesta.json();
 
+        var estadosCielo = ["Clear", "Rain", "Clouds"];
+
         for (let i = 0; i < data.length; i++) {
             if(localStorage.getItem("favoritos").split(",").includes(data[i]["nombre"])){
+
+                let imagenCielo;
+                if (!estadosCielo.includes(data[i]["estadoCielo"])) {
+                    imagenCielo = "Rain.jpg";
+                } else {
+                    imagenCielo = `${data[i]["estadoCielo"]}.jpg`;
+                }
+                document.getElementById(`fondoTiempo` + `${data[i]["nombre"]}`).style.backgroundImage = `url(img/${imagenCielo})`;
                 var contenedorTemp = document.getElementById(`temperatura${data[i]["nombre"]}`);
                 contenedorTemp.textContent = data[i]["temperatura"] + "º";
                 var contenedorHum = document.getElementById(`humedad${data[i]["nombre"]}`);

@@ -59,7 +59,9 @@ function dragDrop() {
       event.target.appendChild(draggedElement);
       $(draggedElement).css("width", "25%");
       $(draggedElement).find("h1").css("display", "none");
-      $(draggedElement).find("img").css("width", "100%");
+      $(draggedElement).find("img").css("max-width", "100%");
+      $(draggedElement).find("img").css("width", "auto");
+
     }
   });
 }
