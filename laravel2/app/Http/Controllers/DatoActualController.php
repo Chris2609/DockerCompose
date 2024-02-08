@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
 use App\Models\DatoActual;
+use App\Models\HistorialTemperatura;
 
 class DatoActualController extends Controller
 {
@@ -65,7 +66,11 @@ class DatoActualController extends Controller
                 ]);
             }
 
-
+            HistorialTemperatura::create([
+                'nombre' => $nombre,
+                'temperatura' => $temperaturaReal,
+                'fecha' => now(),                
+            ]);
         }
     } catch (\Throwable $th) {
         return response()->json(['error' => $th->getMessage()], 500);

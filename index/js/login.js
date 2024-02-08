@@ -126,21 +126,21 @@ const laravelApi = "http://localhost:81";
             }
         }
 
-        async function prueba(){
-            try {
-                let respuesta = await fetch(laravelApi + "/api/prueba", {
-                    headers: {
-                        "Content-type": "application/json; charset=UTF-8",
-                    }
-                });
+        // async function prueba(){
+        //     try {
+        //         let respuesta = await fetch(laravelApi + "/api/prueba", {
+        //             headers: {
+        //                 "Content-type": "application/json; charset=UTF-8",
+        //             }
+        //         });
                 
-                let data = await respuesta.json();
-                console.log(data);
+        //         let data = await respuesta.json();
+        //         console.log(data);
                 
-            } catch (error) {
-                console.log(error);
-            }
-        }
+        //     } catch (error) {
+        //         console.log(error);
+        //     }
+        // }
 
         function mostrarLogin(){
             formularioLogin.style.display = "block";
