@@ -1,4 +1,4 @@
-const laravelApi = "http://localhost:81";
+const laravelApi = "http://10.10.17.212:81";
 
         //comprobar si el usuario ya ha iniciado sesion antes
         async function comprobarToken(){

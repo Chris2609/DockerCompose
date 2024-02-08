@@ -66,11 +66,16 @@ async function datosUbicaciones() {
             </div>
             
             <div id="derecha">
-                <input type="date">
-                <div style="background-color: yellow; width: 100%; height: 420px; margin-top: 30px;"></div>
+                <input id="fechaInicio" type="date">
+                <input id="fechaFin" type="date">
+                <button onclick="cargarGrafico('${data[i]["nombre"]}', document.getElementById('fechaInicio').value, document.getElementById('fechaFin').value)">Enviar</button>
+
+                
+                <div style="background-color: yellow; width: 100%; height: auto; max-height: 420px margin-top: 30px;">
+                    <canvas class="grafico" id="grafico_${data[i]["nombre"]}" style="width:100%; min-height: 400px"></canvas>
+                </div>
             </div>
         </div>`;
-
         numTab++;
 
         }

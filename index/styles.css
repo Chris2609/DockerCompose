@@ -155,6 +155,38 @@ input:checked + .slider:before {
 
 /*estilos contenido tabs*/
 
+#principal{
+  height: auto;
+  border-radius: 20px;
+  background: linear-gradient(225deg, #e6e6e6, #ffffff);
+  box-shadow:  -20px 20px 60px #b8b8b8,
+                20px -20px 60px #ffffff;
+}
+
+#izquierda{
+  float: left;
+  margin-block: 20px;
+  width: 40%; 
+  height: 450px;
+}
+#derecha{
+  float: right;
+  margin-block-start: 20px;
+  background-color: green; 
+  width: 50%; 
+  height: 470px;
+}
+@media(max-width: 1023px){
+  #izquierda{
+      clear: both;
+      width: 100%;
+  }
+  #derecha{
+      clear: both;
+      width: 100%;
+  }
+}
+
 .fondoTiempo {
   background-position: center;
   width: 100%;
@@ -214,11 +246,32 @@ box-shadow:  20px 20px 60px #d9d9d9,
              -20px -20px 60px #ffffff;
 }
 
+
 @media(max-width:1023px){
   .temperatura{
     font-size: 5em;
   }
   .humedad{
     font-size: 1.5em;
+  }
+
+  #derecha{
+    margin-top: 60px;
+  }
+}
+
+.grafico{
+  margin-top: 10px;
+}
+
+@media(max-height:905px){
+  .tabcontent{
+    min-height: 84vh;
+  }
+}
+@media(max-width: 700px){
+  .grafico, #derecha{
+    min-height: 0px !important;
+    height: auto !important;
   }
 }

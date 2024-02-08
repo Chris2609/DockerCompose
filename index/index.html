@@ -13,12 +13,13 @@
 <body>
  <!-- Make sure you put this AFTER Leaflet's CSS -->
  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
 
  <script src="js/mapa.js"></script>
  <script src="js/login.js"></script>
  <script src="js/datosUbicaciones.js"></script>
  <script src="js/datosEuskalmet.js"></script>
-
+<script src="js/graficos.js"></script>
 
     <div id="formularioLogin" style="display: block;">
         <form onsubmit="event.preventDefault(); login(correo_login.value, contrasena_login.value);">
@@ -44,40 +45,7 @@
     </div>
 
     <div id="principal" style="display: none;">
-        <style>
-            #principal{
-                height: auto;
-                border-radius: 20px;
-                background: linear-gradient(225deg, #e6e6e6, #ffffff);
-                box-shadow:  -20px 20px 60px #b8b8b8,
-                              20px -20px 60px #ffffff;
-            }
 
-            #izquierda{
-                float: left;
-                margin-block: 20px;
-                width: 40%; 
-                height: 450px;
-            }
-            #derecha{
-                float: right;
-                margin-block-start: 20px;
-                background-color: green; 
-                width: 50%; 
-                height: 470px;
-            }
-            @media(max-width: 1023px){
-                #izquierda{
-                    clear: both;
-                    width: 100%;
-                }
-                #derecha{
-                    clear: both;
-                    width: 100%;
-                }
-            }
-        </style>
-        
         <div id="container" class="container">
             <div id="tabs" class="tabs-container">
         
