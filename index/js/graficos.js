@@ -1,4 +1,15 @@
+function validarFechas(nombre, fechaInicio, fechaFin) {
+    if(fechaInicio == "" || fechaFin == ""){
+        alert("Las fechas no pueden estar vacías");
+        return false;
+    }
+    if(fechaInicio > fechaFin){
+        alert("La fecha de inicio no puede ser mayor a la fecha de fin");
+        return false;
+    }
+    cargarGrafico(nombre, fechaInicio, fechaFin);
 
+}
 
 async function cargarGrafico(nombre, fechaInicio, fechaFin) {
 

@@ -66,9 +66,9 @@ async function datosUbicaciones() {
             </div>
             
             <div id="derecha">
-                <input id="fechaInicio" type="date">
-                <input id="fechaFin" type="date">
-                <button onclick="cargarGrafico('${data[i]["nombre"]}', document.getElementById('fechaInicio').value, document.getElementById('fechaFin').value)">Enviar</button>
+                <input id="fechaInicio${data[i]["nombre"]}" type="date" min="2023-01-01" max="${new Date().toISOString().split('T')[0]}">
+                <input id="fechaFin${data[i]["nombre"]}" type="date" min="2023-01-01" max="${new Date().toISOString().split('T')[0]}">
+                <button onclick="validarFechas('${data[i]["nombre"]}', document.getElementById('fechaInicio${data[i]["nombre"]}').value, document.getElementById('fechaFin${data[i]["nombre"]}').value)">Enviar</button>
 
                 
                 <div style="background-color: yellow; width: 100%; height: auto; max-height: 420px margin-top: 30px;">
