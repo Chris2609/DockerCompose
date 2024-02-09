@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\HistorialTemperaturaController;
 use App\Http\Controllers\PruebaController;
 use App\Http\Controllers\RegisterController;
 use Illuminate\Http\Request;
@@ -30,6 +31,7 @@ Route::middleware('auth:api')->group( function () {
     Route::get('logout', [RegisterController::class, 'logout']);
     Route::get('obtenerUbicacionLatLon', [DatoActualController::class, 'obtenerUbicacionLatLon']);
     Route::get('obtenerDatosActuales', [DatoActualController::class, 'obtenerDatosActuales']);
+    Route::get('obtenerDatosHistorial', [HistorialTemperaturaController::class, 'obtenerDatosHistorial']);
 });
 
 
