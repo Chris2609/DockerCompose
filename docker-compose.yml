@@ -29,9 +29,9 @@ services:
       - ./BBDD/:/var/lib/mysql
   laravelpassport:
     image: markosmartinez/laravelpassport-php8.2
-    container_name: LaravelPassport
+    container_name: laravelSolariAPI
     volumes:
-      - ./laravel1/:/var/www/html/
+      - ./laravelSolariAPI/:/var/www/html/
       # Por defecto el puerto utilizado en laravel es el 8000
     ports:
       - 81:8000
