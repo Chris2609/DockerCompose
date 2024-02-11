@@ -12,7 +12,7 @@ function validarFechas(nombre, fechaInicio, fechaFin) {
 }
 
 async function cargarGrafico(nombre, fechaInicio, fechaFin) {
-
+carga();
 try {
     let respuesta = await fetch(laravelApi + "/api/obtenerDatosHistorial?nombre=" + nombre + "&fechaInicio="+ fechaInicio + "&fechaFin=" + fechaFin, {
         headers: {
@@ -33,6 +33,7 @@ try {
     }
 
     new Chart(`grafico_${nombre}`, {
+      
       type: "line",
       data: {
         labels: xValues,
@@ -41,7 +42,7 @@ try {
           lineTension: 0,
           backgroundColor: "#1089b1",
           borderColor: "#4dabab",
-          data: yValues
+          data: yValues,
         }]
       },
       options: {
@@ -54,6 +55,6 @@ try {
 } catch (error) {
     
 }
-
+finCarga();
 
 }

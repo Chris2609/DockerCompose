@@ -7,29 +7,24 @@ function dragDrop() {
     
     $(`#sensacionTermica_${ubicacion}`).on("dragstart", function (event) {
       object = event.target.id;
-      console.log("inicio drag");
     });
 
     $(`#presionAtmosferica_${ubicacion}`).on("dragstart", function (event) {
       object = event.target.id;
-      console.log("inicio drag");
     });
 
     $(`#velocidadViento_${ubicacion}`).on("dragstart", function (event) {
       object = event.target.id;
-      console.log("inicio drag");
     });
 
     $(`#estadoCielo_${ubicacion}`).on("dragstart", function (event) {
       object = event.target.id;
-      console.log("inicio drag");
     });
   }
  
 
   $(".destino").on("dragover", function (event) {
     event.preventDefault();
-    console.log("destino");
   });
 
   $(".destino").on("drop", function (event) {
@@ -47,7 +42,6 @@ function dragDrop() {
 
   $(".origen").on("dragover", function (event) {
     event.preventDefault();
-    console.log("origen");
   });
 
   //evento de soltar en el div de origen

@@ -1,3 +1,5 @@
+var intervalActualizar;
+
 async function datosUbicaciones() {
     
     try {
@@ -48,7 +50,7 @@ async function datosUbicaciones() {
                 <div class="origen" style="width: 100%; height: 100px; margin-top: 10px; display: flex; flex-wrap: wrap; min-height: 120px; height:auto; align-items: center; justify-content: center;">
                     <div draggable="true" id="sensacionTermica_${data[i]["nombre"]}" style="display: flex; flex-wrap:wrap; align-items: center; justify-content: center; width: 25%">
                         <img draggable="false" src="img/sensacionTermica.png" style="margin-right: 10px; display: block; max-width: 100%; height: auto;">
-                        <h1 style="display:none;">${data[i]["sensacionTermica"]} º</h1>
+                        <h1 style="display:none;">${data[i]["sensacionTermica"]}º C</h1>
                     </div>
                     <div draggable="true" id="presionAtmosferica_${data[i]["nombre"]}" style="display: flex; flex-wrap:wrap; align-items: center; justify-content: center; width: 25%">
                         <img draggable="false" src="img/presionAtmosferica.png" style="margin-right: 10px; display: block; max-width: 100%; height: auto;">
@@ -65,13 +67,15 @@ async function datosUbicaciones() {
                 </div>
             </div>
             
-            <div id="derecha">
+            <div id="derecha" style="text-align: center;">
+                <div>
                 <input id="fechaInicio${data[i]["nombre"]}" type="date" min="2023-01-01" max="${new Date().toISOString().split('T')[0]}">
                 <input id="fechaFin${data[i]["nombre"]}" type="date" min="2023-01-01" max="${new Date().toISOString().split('T')[0]}">
                 <button onclick="validarFechas('${data[i]["nombre"]}', document.getElementById('fechaInicio${data[i]["nombre"]}').value, document.getElementById('fechaFin${data[i]["nombre"]}').value)">Enviar</button>
-
+                </div>
                 
-                <div style="background-color: yellow; width: 100%; height: auto; max-height: 420px margin-top: 30px;">
+                
+                <div style="width: 100%; height: auto; max-height: 420px margin-top: 30px;">
                     <canvas class="grafico" id="grafico_${data[i]["nombre"]}" style="width:100%; min-height: 400px"></canvas>
                 </div>
             </div>
@@ -89,7 +93,7 @@ async function datosUbicaciones() {
 
 
 
-    setInterval(() => {
+    intervalActualizar = setInterval(() => {
         actualizarDatos();
         console.log("actualizado")
     }, 10000);
@@ -124,7 +128,7 @@ async function actualizarDatos(){
                 contenedorHum.textContent = "Humedad: " + data[i]["humedad"] + "%";
                 try {
                     var contenedorSensacionTermica = document.getElementById(`sensacionTermica_${data[i]["nombre"]}`).getElementsByTagName("h1")[0];
-                    contenedorSensacionTermica.textContent = `${data[i]["sensacionTermica"]} º`;
+                    contenedorSensacionTermica.textContent = `${data[i]["sensacionTermica"]}º C`;
                 } catch (error) {
                     
                 }

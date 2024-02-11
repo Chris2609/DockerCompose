@@ -2,6 +2,8 @@ const laravelApi = "http://" + (new URL(window.location.origin)).hostname +":81"
 
         //comprobar si el usuario ya ha iniciado sesion antes
         async function comprobarToken(){
+            setTimeout(async () => {
+                carga();
             try {
                 let respuesta = await fetch(laravelApi + "/api/comprobarToken", {
                     method: "POST",
@@ -21,21 +23,24 @@ const laravelApi = "http://" + (new URL(window.location.origin)).hostname +":81"
                 datosUbicaciones();
             } else{
                 console.log("token invalido");
+                alert("Tu sesión ha expirado o el token no es válio");
             }
 
             } catch (error) {
                 console.error(error);
             }
+            finCarga();
+            }, 500);
+            
         }
 
         if(sessionStorage.getItem("token") != null){
             comprobarToken();
-            
         }
         //fin comprobacion sesion del usuario
 
         async function login(correo, contrasena) {
-
+            carga();
             try {
                 let respuesta = await fetch(laravelApi + "/api/login", {
                     method: "POST",
@@ -62,14 +67,16 @@ const laravelApi = "http://" + (new URL(window.location.origin)).hostname +":81"
                 } else {
                     // Ha fallado el login
                     console.error('Error en el inicio de sesión:', data["error"]);
+                    alert("Correo o contraseña incorrectos");
                 }
             } catch (error) {
                 console.error(error);
             }
+            finCarga();
         }
 
         async function register(nombre, correo, contrasena, cContrasena) {
-
+            carga();
             try {
                 let respuesta = await fetch(laravelApi + "/api/register", {
                     method: "POST",
@@ -98,13 +105,16 @@ const laravelApi = "http://" + (new URL(window.location.origin)).hostname +":81"
                 } else {
                     // Ha fallado el login
                     console.error('Error al registrarse:', data["error"]);
+                    alert("Error al registrarse, revise que las contraseñas coincidan");
                 }
             } catch (error) {
                 console.error(error);
             }
+            finCarga();
         }
 
         async function logout(){
+            clearInterval(intervalActualizar);
             mostrarLogin();
             principal.style.display = "none";
             try {
@@ -126,6 +136,14 @@ const laravelApi = "http://" + (new URL(window.location.origin)).hostname +":81"
             }
         }
 
+        function carga(){
+            iconoCarga.style.display = "block";
+        }
+
+        function finCarga(){
+            iconoCarga.style.display = "none";
+        }
+        
         // async function prueba(){
         //     try {
         //         let respuesta = await fetch(laravelApi + "/api/prueba", {

@@ -172,9 +172,13 @@ input:checked + .slider:before {
 #derecha{
   float: right;
   margin-block-start: 20px;
-  background-color: green; 
   width: 50%; 
   height: 470px;
+  padding: 7px;
+  border-radius: 25px;
+background: #ededed;
+box-shadow: inset -20px -20px 60px #c9c9c9,
+            inset 20px 20px 60px #ffffff;
 }
 @media(max-width: 1023px){
   #izquierda{
@@ -274,4 +278,17 @@ box-shadow:  20px 20px 60px #d9d9d9,
     min-height: 0px !important;
     height: auto !important;
   }
+}
+
+.logout{
+  position: fixed;
+  right: 40px;
+  bottom: 40px;
+  color: white;
+  font-size: 20px;
+  padding: 30px;
+  border-radius: 100%;
+  background-color: #1089b1;
+  z-index: 999;
+  cursor: pointer;
 }
