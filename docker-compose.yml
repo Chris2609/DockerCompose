@@ -39,9 +39,9 @@ services:
       - mysql
   laravelbackend:
     image: markosmartinez/laravelpassport-php8.2
-    container_name: LaravelBackend
+    container_name: laravelGeneracionBackground
     volumes:
-      - ./laravel2/:/var/www/html/
+      - ./laravelGeneracionBackground/:/var/www/html/
     environment:
       # Por defecto el modo utilizado es 'USAR_WORKER: 0'
       USAR_WORKER: 1
