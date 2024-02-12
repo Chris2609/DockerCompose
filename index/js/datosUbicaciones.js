@@ -69,14 +69,14 @@ async function datosUbicaciones() {
             
             <div id="derecha" style="text-align: center;">
                 <div>
-                <input id="fechaInicio${data[i]["nombre"]}" type="date" min="2023-01-01" max="${new Date().toISOString().split('T')[0]}">
-                <input id="fechaFin${data[i]["nombre"]}" type="date" min="2023-01-01" max="${new Date().toISOString().split('T')[0]}">
-                <button onclick="validarFechas('${data[i]["nombre"]}', document.getElementById('fechaInicio${data[i]["nombre"]}').value, document.getElementById('fechaFin${data[i]["nombre"]}').value)">Enviar</button>
+                <input class="inputFecha" id="fechaInicio${data[i]["nombre"]}" type="date" min="2023-01-01" max="${new Date().toISOString().split('T')[0]}">
+                <input class="inputFecha" id="fechaFin${data[i]["nombre"]}" type="date" min="2023-01-01" max="${new Date().toISOString().split('T')[0]}">
+                <button class="botonGrafico" onclick="validarFechas('${data[i]["nombre"]}', document.getElementById('fechaInicio${data[i]["nombre"]}').value, document.getElementById('fechaFin${data[i]["nombre"]}').value)">Enviar</button>
                 </div>
                 
                 
                 <div style="width: 100%; height: auto; max-height: 420px margin-top: 30px;">
-                    <canvas class="grafico" id="grafico_${data[i]["nombre"]}" style="width:100%; min-height: 400px"></canvas>
+                    <canvas class="grafico" id="grafico_${data[i]["nombre"]}" style="width:100%; min-height:400px; max-height: 420px"></canvas>
                 </div>
             </div>
         </div>`;

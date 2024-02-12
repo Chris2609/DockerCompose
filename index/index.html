@@ -36,6 +36,7 @@
 
     <div id="formularioLogin" style="display: block;">
         <div class="text">Login</div>
+        <p id="avisoLogin" style="display: none; color: rgb(156, 0, 0);"><b>¡Correo o contraseña incorrectos!</b></p>
         <form onsubmit="event.preventDefault(); login(correo_login.value, contrasena_login.value);">
             <div class="inputs">
                 <input type="email" name="correo_login" id="correo_login" placeholder="Correo" required>
@@ -54,6 +55,9 @@
     <div id="formularioRegister" style="display: none;">
 
         <div class="text">Register</div>
+        <p id="avisoRegister" style="display: none; color: rgb(156, 0, 0);"><b>¡Error al registrarse, revise que las contraseñas coincidan!</b></p>
+        <p id="avisoRegisterCorreo" style="display: none; color: rgb(156, 0, 0);"><b>¡Ya existe una cuenta asociada a ese correo!</b></p>
+
         <form onsubmit="event.preventDefault(); register(nombre_register.value, correo_register.value, contrasena_register.value, cContrasena_register.value);">
             <div class="inputs">
                 <input type="text" name="nombre_register" id="nombre_register" placeholder="Nombre" required>

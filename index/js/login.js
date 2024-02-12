@@ -23,7 +23,7 @@ const laravelApi = "http://" + (new URL(window.location.origin)).hostname +":81"
                 datosUbicaciones();
             } else{
                 console.log("token invalido");
-                alert("Tu sesión ha expirado o el token no es válio");
+                alert("Tu sesión ha expirado o el token no es válido");
             }
 
             } catch (error) {
@@ -67,7 +67,9 @@ const laravelApi = "http://" + (new URL(window.location.origin)).hostname +":81"
                 } else {
                     // Ha fallado el login
                     console.error('Error en el inicio de sesión:', data["error"]);
-                    alert("Correo o contraseña incorrectos");
+                    
+                    //mostrar error al usuario
+                    avisoLogin.style.display = "block";
                 }
             } catch (error) {
                 console.error(error);
@@ -103,12 +105,17 @@ const laravelApi = "http://" + (new URL(window.location.origin)).hostname +":81"
                     datosUbicaciones();
 
                 } else {
-                    // Ha fallado el login
+                    // Ha fallado el registro
                     console.error('Error al registrarse:', data["error"]);
-                    alert("Error al registrarse, revise que las contraseñas coincidan");
+                    
+                    avisoRegisterCorreo.style.display = "none";
+                    avisoRegister.style.display = "block";
+
                 }
             } catch (error) {
                 console.error(error);
+                avisoRegister.style.display = "none";
+                avisoRegisterCorreo.style.display = "block";
             }
             finCarga();
         }

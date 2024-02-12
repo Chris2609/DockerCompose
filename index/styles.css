@@ -137,6 +137,7 @@ input:checked + .slider:before {
   border-radius: 50%;
 }
 
+/*hacer resposive las tabs*/
 @media (max-width: 968px) {
   .tabs {
     flex-direction: column;
@@ -155,39 +156,37 @@ input:checked + .slider:before {
 
 /*estilos contenido tabs*/
 
-#principal{
+#principal {
   height: auto;
   border-radius: 20px;
   background: linear-gradient(225deg, #e6e6e6, #ffffff);
-  box-shadow:  -20px 20px 60px #b8b8b8,
-                20px -20px 60px #ffffff;
+  box-shadow: -20px 20px 60px #b8b8b8, 20px -20px 60px #ffffff;
 }
 
-#izquierda{
+#izquierda {
   float: left;
   margin-block: 20px;
-  width: 40%; 
+  width: 40%;
   height: 450px;
 }
-#derecha{
+#derecha {
   float: right;
   margin-block-start: 20px;
-  width: 50%; 
+  width: 50%;
   height: 470px;
   padding: 7px;
   border-radius: 25px;
-background: #ededed;
-box-shadow: inset -20px -20px 60px #c9c9c9,
-            inset 20px 20px 60px #ffffff;
+  background: #ededed;
+  box-shadow: inset -20px -20px 60px #c9c9c9, inset 20px 20px 60px #ffffff;
 }
-@media(max-width: 1023px){
-  #izquierda{
-      clear: both;
-      width: 100%;
+@media (max-width: 1023px) {
+  #izquierda {
+    clear: both;
+    width: 100%;
   }
-  #derecha{
-      clear: both;
-      width: 100%;
+  #derecha {
+    clear: both;
+    width: 100%;
   }
 }
 
@@ -239,48 +238,46 @@ box-shadow: inset -20px -20px 60px #c9c9c9,
 .contenedorDestino {
   border-radius: 20px;
   background: #e3e3e3;
-  box-shadow:  20px 20px 60px #c1c1c1,
-               -20px -20px 60px #ffffff;
+  box-shadow: 20px 20px 60px #c1c1c1, -20px -20px 60px #ffffff;
 }
 
-.origen{
+.origen {
   border-radius: 50px;
-background: #ffffff;
-box-shadow:  20px 20px 60px #d9d9d9,
-             -20px -20px 60px #ffffff;
+  background: #ffffff;
+  box-shadow: 20px 20px 60px #d9d9d9, -20px -20px 60px #ffffff;
 }
 
-
-@media(max-width:1023px){
-  .temperatura{
+@media (max-width: 1023px) {
+  .temperatura {
     font-size: 5em;
   }
-  .humedad{
+  .humedad {
     font-size: 1.5em;
   }
 
-  #derecha{
+  #derecha {
     margin-top: 60px;
   }
 }
 
-.grafico{
+.grafico {
   margin-top: 10px;
 }
 
-@media(max-height:905px){
-  .tabcontent{
+@media (max-height: 905px) {
+  .tabcontent {
     min-height: 84vh;
   }
 }
-@media(max-width: 700px){
-  .grafico, #derecha{
+@media (max-width: 700px) {
+  .grafico,
+  #derecha {
     min-height: 0px !important;
     height: auto !important;
   }
 }
 
-.logout{
+.logout {
   position: fixed;
   right: 40px;
   bottom: 40px;
@@ -291,4 +288,37 @@ box-shadow:  20px 20px 60px #d9d9d9,
   background-color: #1089b1;
   z-index: 999;
   cursor: pointer;
+}
+
+.inputFecha {
+  width: auto;
+  padding: 5px;
+  color: #000000;
+  font-size: 18px;
+  border-radius: 5px;
+  border: none;
+  outline: none;
+  background-color: #e0e0e0;
+  box-shadow: 4px 4px 10px #8a8a8a, -4px -4px 10px #ebebeb;
+
+}
+
+.botonGrafico {
+  margin-inline: 10px;
+  width: 150px;
+  height: 34.65px;
+  color: #4dabab;
+  font-size: 15px;
+  font-weight: 600;
+  background-color: #e0e0e0;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  border-radius: 10px;
+  box-shadow: 4px 4px 10px #8a8a8a, -4px -4px 10px #ebebeb;
+}
+
+.botonGrafico:focus {
+  color: #1089b1;
+  box-shadow: inset 4px 4px 10px #b4b4b4, -4px -4px 10px #ebebeb;
 }
