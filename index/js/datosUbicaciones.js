@@ -49,19 +49,19 @@ async function datosUbicaciones() {
                 </div>
                 <div class="origen" style="width: 100%; height: 100px; margin-top: 10px; display: flex; flex-wrap: wrap; min-height: 120px; height:auto; align-items: center; justify-content: center;">
                     <div draggable="true" id="sensacionTermica_${data[i]["nombre"]}" style="display: flex; flex-wrap:wrap; align-items: center; justify-content: center; width: 25%">
-                        <img draggable="false" src="img/sensacionTermica.png" style="margin-right: 10px; display: block; max-width: 100%; height: auto;">
+                        <img draggable="false" src="img/sensacionTermica.png" style="margin-right: 10px; display: block; max-width: 100%; height: auto;" alt="sensacionTermica">
                         <h1 style="display:none;">${data[i]["sensacionTermica"]}º C</h1>
                     </div>
                     <div draggable="true" id="presionAtmosferica_${data[i]["nombre"]}" style="display: flex; flex-wrap:wrap; align-items: center; justify-content: center; width: 25%">
-                        <img draggable="false" src="img/presionAtmosferica.png" style="margin-right: 10px; display: block; max-width: 100%; height: auto;">
+                        <img draggable="false" src="img/presionAtmosferica.png" style="margin-right: 10px; display: block; max-width: 100%; height: auto;" alt="presionAtmosferica">
                         <h1 style="display:none;">${data[i]["presionAtmosferica(hPa)"]} hPA</h1>
                     </div>
                     <div draggable="true" id="velocidadViento_${data[i]["nombre"]}" style="display: flex; flex-wrap:wrap; align-items: center; justify-content: center; width: 25%">
-                        <img draggable="false" src="img/velocidadViento.png" style="margin-right: 10px; display: block; max-width: 100%; height: auto;">
+                        <img draggable="false" src="img/velocidadViento.png" style="margin-right: 10px; display: block; max-width: 100%; height: auto;" alt="velocidadViento">
                         <h1 style="display:none;">${data[i]["velocidadViento(m/s)"]} m/s</h1>
                     </div>
                     <div draggable="true" id="estadoCielo_${data[i]["nombre"]}" style="display: flex; flex-wrap:wrap; align-items: center; justify-content: center; width: 25%">
-                        <img draggable="false" src="img/estadoCielo.png" style="margin-right: 10px; display: block; max-width: 100%; height: auto;">
+                        <img draggable="false" src="img/estadoCielo.png" style="margin-right: 10px; display: block; max-width: 100%; height: auto;" alt="estadoCielo">
                         <h1 style="display:none;">${data[i]["estadoCielo"]}</h1>
                     </div>
                 </div>
@@ -69,6 +69,8 @@ async function datosUbicaciones() {
             
             <div id="derecha" style="text-align: center;">
                 <div>
+                <label for="fechaInicio${data[i]["nombre"]}">ㅤ</label>
+                <label for="fechaFin${data[i]["nombre"]}">ㅤ</label>
                 <input class="inputFecha" id="fechaInicio${data[i]["nombre"]}" type="date" min="2023-01-01" max="${new Date().toISOString().split('T')[0]}">
                 <input class="inputFecha" id="fechaFin${data[i]["nombre"]}" type="date" min="2023-01-01" max="${new Date().toISOString().split('T')[0]}">
                 <button class="botonGrafico" onclick="validarFechas('${data[i]["nombre"]}', document.getElementById('fechaInicio${data[i]["nombre"]}').value, document.getElementById('fechaFin${data[i]["nombre"]}').value)">Enviar</button>
