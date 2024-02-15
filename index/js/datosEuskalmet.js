@@ -20,7 +20,11 @@ async function datosEuskalmet(){
             dataType: "json"
         });
         
-        previsionIrun = respuesta["forecastText"]["SPANISH"];
+        if(respuesta["forecastText"]["SPANISH"] != undefined){
+            previsionIrun = respuesta["forecastText"]["SPANISH"];
+        } else{
+            previsionIrun = "No hay datos disponibles"
+        }
 
     } catch (error) {
         console.log(error);
@@ -37,8 +41,11 @@ async function datosEuskalmet(){
             dataType: "json"
         });
         
-        previsionHondarribia = respuesta["forecastText"]["SPANISH"];
-
+        if(respuesta["forecastText"]["SPANISH"] != undefined){
+            previsionHondarribia = respuesta["forecastText"]["SPANISH"];
+        } else{
+            previsionHondarribia = "No hay datos disponibles"
+        }
     } catch (error) {
         console.log(error);
     }
@@ -54,7 +61,11 @@ async function datosEuskalmet(){
             dataType: "json"
         });
         
-        previsionUsurbil = respuesta["forecastText"]["SPANISH"];
+        if(respuesta["forecastText"]["SPANISH"] != undefined){
+            previsionUsurbil = respuesta["forecastText"]["SPANISH"];
+        } else{
+            previsionUsurbil = "No hay datos disponibles"
+        }
 
     } catch (error) {
         console.log(error);
@@ -71,8 +82,11 @@ async function datosEuskalmet(){
             dataType: "json"
         });
         
-        previsionDonostia = respuesta["forecastText"]["SPANISH"];
-
+        if(respuesta["forecastText"]["SPANISH"] != undefined){
+            previsionDonostia = respuesta["forecastText"]["SPANISH"];
+        } else{
+            previsionDonostia = "No hay datos disponibles"
+        }
     } catch (error) {
         console.log(error);
     }
@@ -88,8 +102,11 @@ async function datosEuskalmet(){
             dataType: "json"
         });
         
-        previsionErrenteria = respuesta["forecastText"]["SPANISH"];
-
+        if(respuesta["forecastText"]["SPANISH"] != undefined){
+            previsionErrenteria = respuesta["forecastText"]["SPANISH"];
+        } else{
+            previsionErrenteria = "No hay datos disponibles"
+        }
     } catch (error) {
         console.log(error);
     }
